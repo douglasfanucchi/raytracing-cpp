@@ -10,7 +10,7 @@ COMPILER=c++
 all: $(NAME)
 
 $(NAME): $(FILES) src/main.cpp
-	@$(COMPILER) --std=c++98 $(INCLUDES) $(FILES) src/main.cpp -o $(NAME)
+	@$(COMPILER) $(INCLUDES) $(FILES) src/main.cpp -o $(NAME)
 
 unit: $(TEST_FILES)
 	@$(COMPILER) $(INCLUDES) -I tests/ $(FILES) $(TEST_FILES) -o unit
