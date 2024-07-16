@@ -2,3 +2,4 @@ executable
 unit
 !tests/unit
 .vscode
+*.o

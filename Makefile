@@ -2,18 +2,23 @@ NAME=executable
 
 FILES:=
 FILES:=$(addprefix src/, $(FILES))
-TEST_FILES:= asserts.cpp main.cpp unit/example.cpp
+OBJS:=$(FILES:%.cpp=%.o)
+TEST_FILES:= asserts.cpp unit/example.cpp
 TEST_FILES:=$(addprefix tests/, $(TEST_FILES))
+TEST_OBJS:=$(TEST_FILES:%.cpp=%.o)
 INCLUDES=-I includes/
 COMPILER=c++
 
 all: $(NAME)
 
-$(NAME): $(FILES) src/main.cpp
-	@$(COMPILER) $(INCLUDES) $(FILES) src/main.cpp -o $(NAME)
+$(NAME): $(OBJS) src/main.cpp
+	$(COMPILER) $(INCLUDES) $(OBJS) src/main.cpp -o $(NAME)
 
-unit: $(TEST_FILES)
-	@$(COMPILER) $(INCLUDES) -I tests/ $(FILES) $(TEST_FILES) -o unit
+%.o:%.cpp
+	$(COMPILER) $(INCLUDES) -c $< -o $@
+
+unit: $(TEST_OBJS) $(OBJS) tests/main.cpp
+	@$(COMPILER) $(INCLUDES) -I tests/ $(OBJS) $(TEST_OBJS) tests/main.cpp -o unit
 	@./unit
 	@rm -rf unit
 
