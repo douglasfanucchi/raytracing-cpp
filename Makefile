@@ -1,7 +1,7 @@
 NAME=executable
 
 FILES:=
-FILES:=$(addprefix src/, $($FILES))
+FILES:=$(addprefix src/, $(FILES))
 TEST_FILES:= asserts.cpp main.cpp unit/example.cpp
 TEST_FILES:=$(addprefix tests/, $(TEST_FILES))
 INCLUDES=-I includes/
