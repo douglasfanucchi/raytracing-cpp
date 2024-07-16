@@ -24,3 +24,11 @@ unit: $(TEST_OBJS) $(OBJS) tests/main.cpp
 
 e2e: $(NAME)
 	@./tests/e2e/Program.sh $(realpath $(NAME))
+
+clean:
+	@rm -rf $(OBJS) $(TEST_OBJS)
+
+fclean: clean
+	@rm -rf $(NAME) 
+
+re: fclean all
