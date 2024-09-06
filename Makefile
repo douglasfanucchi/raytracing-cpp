@@ -15,8 +15,9 @@ $(NAME): $(OBJS) src/main.cpp
 	$(COMPILER) $(INCLUDES) -c $< -o $@
 
 unit:
-	@$(COMPILER) $(INCLUDES) -I tests/ tests/main.cpp -o unit
-	@./unit || rm -rf unit
+	@$(COMPILER) $(INCLUDES) -I tests/ $(FILES) tests/main.cpp -o unit
+	@./unit
+	@rm -rf unit
 
 e2e: $(NAME)
 	@./tests/e2e/Program.sh $(realpath $(NAME))
