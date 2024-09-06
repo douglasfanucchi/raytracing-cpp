@@ -1,6 +1,5 @@
 #include <minunit.h>
-
-void test_suite(void);
+#include "unit/example.cpp"
 
 int main(int argc, char *argv[]) {
 	MU_RUN_SUITE(test_suite);

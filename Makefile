@@ -3,9 +3,6 @@ NAME=executable
 FILES:=
 FILES:=$(addprefix src/, $(FILES))
 OBJS:=$(FILES:%.cpp=%.o)
-TEST_FILES:= unit/example.cpp
-TEST_FILES:=$(addprefix tests/, $(TEST_FILES))
-TEST_OBJS:=$(TEST_FILES:%.cpp=%.o)
 INCLUDES=-I includes/
 COMPILER=c++
 
@@ -17,10 +14,9 @@ $(NAME): $(OBJS) src/main.cpp
 %.o:%.cpp
 	$(COMPILER) $(INCLUDES) -c $< -o $@
 
-unit: $(TEST_OBJS) $(OBJS) tests/main.cpp
-	@$(COMPILER) $(INCLUDES) -I tests/ $(OBJS) $(TEST_OBJS) tests/main.cpp -o unit
-	@./unit
-	@rm -rf unit
+unit:
+	@$(COMPILER) $(INCLUDES) -I tests/ tests/main.cpp -o unit
+	@./unit || rm -rf unit
 
 e2e: $(NAME)
 	@./tests/e2e/Program.sh $(realpath $(NAME))
