@@ -1,6 +1,6 @@
 NAME=executable
 
-FILES:= tuples/Tuple.cpp
+FILES:= tuples/Tuple.cpp tuples/Point.cpp
 FILES:=$(addprefix src/, $(FILES))
 OBJS:=$(FILES:%.cpp=%.o)
 INCLUDES=-I includes/
