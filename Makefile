@@ -3,7 +3,7 @@ NAME=executable
 FILES:=
 FILES:=$(addprefix src/, $(FILES))
 OBJS:=$(FILES:%.cpp=%.o)
-TEST_FILES:= asserts.cpp unit/example.cpp
+TEST_FILES:= unit/example.cpp
 TEST_FILES:=$(addprefix tests/, $(TEST_FILES))
 TEST_OBJS:=$(TEST_FILES:%.cpp=%.o)
 INCLUDES=-I includes/

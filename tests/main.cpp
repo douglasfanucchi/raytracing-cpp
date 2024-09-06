@@ -1,8 +1,9 @@
-#include <iostream>
-#include <tests.hpp>
+#include <minunit.h>
 
-int main()
-{
-    RUN_EXAMPLE_SUITE();
-    std::cout << std::endl;
+void test_suite(void);
+
+int main(int argc, char *argv[]) {
+	MU_RUN_SUITE(test_suite);
+	MU_REPORT();
+	return MU_EXIT_CODE;
 }
