@@ -6,6 +6,7 @@
 class Point : public Tuple {
     public:
         Point(void);
+        Point(float, float, float);
 };
 
 #endif
