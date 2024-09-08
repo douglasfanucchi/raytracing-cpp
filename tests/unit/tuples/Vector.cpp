@@ -20,7 +20,21 @@ MU_TEST(test_should_create_a_non_null_vector) {
     mu_assert_double_eq(0, v.w);
 }
 
+MU_TEST(test_should_compare_two_vectors_as_equal) {
+    Vector v(3, 4, 5);
+
+    mu_check(v == v);
+}
+
+MU_TEST(test_should_compare_two_vectors_as_different) {
+    Vector v(3, 4, 5);
+
+    mu_check(v != Vector(M_PI, M_SQRT2, M_E));
+}
+
 MU_TEST_SUITE(test_vector_suite) {
     MU_RUN_TEST(test_should_create_null_vector);
     MU_RUN_TEST(test_should_create_a_non_null_vector);
+    MU_RUN_TEST(test_should_compare_two_vectors_as_equal);
+    MU_RUN_TEST(test_should_compare_two_vectors_as_different);
 }
