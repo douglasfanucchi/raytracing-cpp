@@ -19,7 +19,21 @@ MU_TEST(test_should_create_a_point_at_certain_space_position) {
     mu_assert_double_eq(1, p.w);
 }
 
+MU_TEST(test_should_compare_point_as_equal) {
+    Point p(3, 4, 5);
+    
+    mu_check(p == p);
+}
+
+MU_TEST(test_should_compare_point_as_different) {
+    Point p(3, 4, 5);
+
+    mu_check(p != Point(M_PI, M_SQRT2, M_E));
+}
+
 MU_TEST_SUITE(test_point_suite) {
     MU_RUN_TEST(test_should_create_a_point_at_space_origin);
     MU_RUN_TEST(test_should_create_a_point_at_certain_space_position);
+    MU_RUN_TEST(test_should_compare_point_as_equal);
+    MU_RUN_TEST(test_should_compare_point_as_different);
 }
