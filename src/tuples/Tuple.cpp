@@ -16,3 +16,13 @@ bool Tuple::operator==(const Tuple &tuple) const {
 bool Tuple::operator!=(const Tuple &tuple) const {
     return !((*this) == tuple);
 }
+
+Tuple Tuple::operator+(const Tuple &tuple) const {
+    Tuple result;
+
+    result.x = tuple.x + this->x;
+    result.y = tuple.y + this->y;
+    result.z = tuple.z + this->z;
+    result.w = tuple.w + this->w;
+    return result;
+}
