@@ -9,6 +9,7 @@ class Tuple {
         Tuple(void);
         Tuple(float, float, float, float);
         bool operator==(const Tuple&) const;
+        bool operator!=(const Tuple&) const;
 };
 
 #endif
