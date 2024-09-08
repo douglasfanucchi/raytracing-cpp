@@ -12,3 +12,7 @@ bool Tuple::operator==(const Tuple &tuple) const {
            fabs(this->z - tuple.z) < epsilon &&
            fabs(this->w - tuple.w) < epsilon;
 }
+
+bool Tuple::operator!=(const Tuple &tuple) const {
+    return !((*this) == tuple);
+}
