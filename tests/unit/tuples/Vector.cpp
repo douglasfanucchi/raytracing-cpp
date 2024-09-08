@@ -41,10 +41,19 @@ MU_TEST(test_should_add_a_non_null_vector_to_a_null_vector) {
     mu_assert_double_eq(0, result.w);
 }
 
+MU_TEST(test_should_add_non_null_vectors) {
+    Vector v(1, 15, 13);
+
+    Vector result = v + Vector(3, 4, -5);
+
+    mu_check(result == Vector(4, 19, 8));
+}
+
 MU_TEST_SUITE(test_vector_suite) {
     MU_RUN_TEST(test_should_create_null_vector);
     MU_RUN_TEST(test_should_create_a_non_null_vector);
     MU_RUN_TEST(test_should_compare_two_vectors_as_equal);
     MU_RUN_TEST(test_should_compare_two_vectors_as_different);
     MU_RUN_TEST(test_should_add_a_non_null_vector_to_a_null_vector);
+    MU_RUN_TEST(test_should_add_non_null_vectors);
 }
