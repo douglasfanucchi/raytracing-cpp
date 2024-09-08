@@ -26,6 +26,7 @@ MU_TEST(test_should_compare_two_tuple_as_equal) {
     Tuple tuple2(M_PI, M_SQRT2, 1, 7);
 
     mu_check(tuple == tuple2);
+    mu_check((tuple == Tuple(1, 2, 3, 4)) == false);
 }
 
 MU_TEST_SUITE(test_tuple_suite) {
