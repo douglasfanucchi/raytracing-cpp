@@ -32,9 +32,19 @@ MU_TEST(test_should_compare_two_vectors_as_different) {
     mu_check(v != Vector(M_PI, M_SQRT2, M_E));
 }
 
+MU_TEST(test_should_add_a_non_null_vector_to_a_null_vector) {
+    Vector v(3, 4, 5);
+
+    Vector result = v + Vector(0, 0, 0);
+
+    mu_check(v == result);
+    mu_assert_double_eq(0, result.w);
+}
+
 MU_TEST_SUITE(test_vector_suite) {
     MU_RUN_TEST(test_should_create_null_vector);
     MU_RUN_TEST(test_should_create_a_non_null_vector);
     MU_RUN_TEST(test_should_compare_two_vectors_as_equal);
     MU_RUN_TEST(test_should_compare_two_vectors_as_different);
+    MU_RUN_TEST(test_should_add_a_non_null_vector_to_a_null_vector);
 }
