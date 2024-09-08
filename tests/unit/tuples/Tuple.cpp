@@ -34,6 +34,7 @@ MU_TEST(test_should_compare_two_tuple_as_different) {
     Tuple tuple2(1, 2, 3, 4);
 
     mu_check(tuple != tuple2);
+    mu_check((tuple != tuple) == false);
 }
 
 MU_TEST_SUITE(test_tuple_suite) {
