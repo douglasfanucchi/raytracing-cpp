@@ -5,3 +5,13 @@ Point::Point(void) : Tuple() {
 }
 
 Point::Point(float x, float y, float z) : Tuple(x, y, z, 1) {}
+
+Vector Point::operator-(const Point &p) const {
+    Vector result;
+
+    result.x = this->x - p.x;
+    result.y = this->y - p.y;
+    result.z = this->z - p.z;
+
+    return result;
+}
