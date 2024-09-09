@@ -26,3 +26,7 @@ Tuple Tuple::operator+(const Tuple &tuple) const {
     result.w = tuple.w + this->w;
     return result;
 }
+
+Tuple Tuple::operator-(const Tuple &tuple) const {
+    return (*this) + Tuple(-tuple.x, -tuple.y, -tuple.z, -tuple.w);
+}
