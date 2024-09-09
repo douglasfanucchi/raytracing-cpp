@@ -11,6 +11,7 @@ class Tuple {
         bool operator==(const Tuple&) const;
         bool operator!=(const Tuple&) const;
         Tuple operator+(const Tuple&) const;
+        Tuple operator-(const Tuple&) const;
 };
 
 #endif

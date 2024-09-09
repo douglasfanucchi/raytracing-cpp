@@ -45,10 +45,19 @@ MU_TEST(test_should_add_two_tuples) {
     mu_check(result == Tuple(5, 5, 5, 5));
 }
 
+MU_TEST(test_should_subtract_tuples) {
+    Tuple tuple(5, 5, 5, 5);
+
+    Tuple result = tuple - Tuple(1, 2, 3, 4);
+
+    mu_check(result == Tuple(4, 3, 2, 1));
+}
+
 MU_TEST_SUITE(test_tuple_suite) {
     MU_RUN_TEST(test_should_create_a_tuple);
     MU_RUN_TEST(test_should_create_a_tuple_with_values_different_than_0);
     MU_RUN_TEST(test_should_compare_two_tuple_as_equal);
     MU_RUN_TEST(test_should_compare_two_tuple_as_different);
     MU_RUN_TEST(test_should_add_two_tuples);
+    MU_RUN_TEST(test_should_subtract_tuples);
 }
