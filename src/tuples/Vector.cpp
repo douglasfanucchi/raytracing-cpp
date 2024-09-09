@@ -13,3 +13,7 @@ Vector Vector::operator+(const Vector &v) const {
 
     return result;
 }
+
+Vector Vector::operator-(const Vector &v) const {
+    return (*this) + Vector(-v.x, -v.y, -v.z);
+}
