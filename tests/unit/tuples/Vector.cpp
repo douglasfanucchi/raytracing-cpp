@@ -1,5 +1,6 @@
 #include <minunit.h>
 #include <Vector.hpp>
+// #include <Point.hpp>
 
 MU_TEST(test_should_create_null_vector) {
     Vector v;
@@ -49,6 +50,14 @@ MU_TEST(test_should_add_non_null_vectors) {
     mu_check(result == Vector(4, 19, 8));
 }
 
+MU_TEST(test_should_subtract_vectors) {
+    Vector v(3, 4, 5);
+
+    Vector result = v - Vector(3, 7, 10);
+
+    mu_check(result == Vector(0, -3, -5));
+}
+
 MU_TEST_SUITE(test_vector_suite) {
     MU_RUN_TEST(test_should_create_null_vector);
     MU_RUN_TEST(test_should_create_a_non_null_vector);
@@ -56,4 +65,5 @@ MU_TEST_SUITE(test_vector_suite) {
     MU_RUN_TEST(test_should_compare_two_vectors_as_different);
     MU_RUN_TEST(test_should_add_a_non_null_vector_to_a_null_vector);
     MU_RUN_TEST(test_should_add_non_null_vectors);
+    MU_RUN_TEST(test_should_subtract_vectors);
 }

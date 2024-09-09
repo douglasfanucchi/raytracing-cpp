@@ -8,6 +8,7 @@ class Vector : public Tuple {
         Vector(void);
         Vector(float, float, float);
         Vector operator+(const Vector&) const;
+        Vector operator-(const Vector&) const;
 };
 
 #endif
