@@ -15,3 +15,13 @@ Vector Point::operator-(const Point &p) const {
 
     return result;
 }
+
+Point Point::operator+(const Vector &v) const {
+    Point result;
+
+    result.x = this->x + v.x;
+    result.y = this->y + v.y;
+    result.z = this->z + v.z;
+
+    return result;
+}
