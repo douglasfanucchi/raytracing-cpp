@@ -9,6 +9,7 @@ class Point : public Tuple {
         Point(void);
         Point(float, float, float);
         Vector operator-(const Point&) const;
+        Point operator+(const Vector&) const;
 };
 
 #endif

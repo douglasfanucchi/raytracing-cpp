@@ -40,6 +40,14 @@ MU_TEST(test_should_subtract_points) {
     mu_check(Vector(1, -3, -6) == result);
 }
 
+MU_TEST(test_should_add_vector_to_point) {
+    Point p(7, 10, 11);
+
+    Point result = p + Vector(3, 4, 5);
+
+    mu_check(Point(10, 14, 16) == result);
+}
+
 MU_TEST_SUITE(test_point_suite) {
     MU_RUN_TEST(test_should_create_a_point_at_space_origin);
     MU_RUN_TEST(test_should_create_a_point_at_certain_space_position);
